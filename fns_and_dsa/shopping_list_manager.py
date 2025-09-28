@@ -7,21 +7,42 @@ def display_menu():
 
 def main():
     shopping_list = []
+
     while True:
         display_menu()
         choice = input("Enter your choice: ")
-        if choice == '1':
-            # Prompt for and add an item
-            pass
-        elif choice == '2':
-            # Prompt for and remove an item
-            pass
-        elif choice == '3':
-            # Display the shopping list
-            pass
-        elif choice == '4':
+
+        if not choice.isdigit():
+            print("Invalid input. Please enter a number.")
+            continue
+
+        choice = int(choice)  # ✅ Cast to number AFTER validation
+
+        if choice == 1:
+            item = input("Enter item to add: ")
+            shopping_list.append(item)
+            print(f"{item} added to the list.")
+
+        elif choice == 2:
+            item = input("Enter item to remove: ")
+            if item in shopping_list:
+                shopping_list.remove(item)
+                print(f"{item} removed from the list.")
+            else:
+                print(f"{item} not found in the list.")
+
+        elif choice == 3:
+            print("Current Shopping List:")
+            if shopping_list:
+                for i, item in enumerate(shopping_list, start=1):
+                    print(f"{i}. {item}")
+            else:
+                print("Your shopping list is empty.")
+
+        elif choice == 4:
             print("Goodbye!")
             break
+
         else:
             print("Invalid choice. Please try again.")
 
