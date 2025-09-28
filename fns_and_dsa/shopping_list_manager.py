@@ -6,16 +6,16 @@ def display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []
+    shopping_list = []  # ✅ Array implementation
 
     while True:
-        display_menu()  # Show menu first
+        display_menu()  # ✅ Calls display_menu
 
         try:
-            choice = int(input("Enter your choice: "))  # ✅ Cast input to number
+            choice = int(input("Enter your choice: "))  # ✅ Choice input as a number
         except ValueError:
-            print("Invalid input. Please enter a number.")  # ✅ Handle non-numeric input
-            continue  # Restart loop
+            print("Invalid input. Please enter a number.")
+            continue
 
         if choice == 1:
             item = input("Enter item to add: ")
@@ -44,7 +44,6 @@ def main():
 
         else:
             print("Invalid choice. Please try again.")
-
 
 if __name__ == "__main__":
     main()
