@@ -32,8 +32,11 @@ def main():
 
         elif choice == 3:
             print("Current Shopping List:")
-            for i, item in enumerate(shopping_list, start=1):
-                print(f"{i}. {item}")
+            if shopping_list:
+                for i, item in enumerate(shopping_list, start=1):
+                    print(f"{i}. {item}")
+            else:
+                print("Your shopping list is empty.")
 
         elif choice == 4:
             print("Goodbye!")
